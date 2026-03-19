@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Regulatory Explainer</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .header-icon { font-size: 26px; }
+        .header h1   { font-size: 18px; font-weight: 600; }
+        .header p    { font-size: 12px; color: #a0aec0; margin-top: 2px; }
+
+        .new-chat-btn {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .new-chat-btn:hover { background: rgba(255,255,255,0.22); }
+
+        /* ── Chat thread ── */
+        .chat-thread {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* Welcome screen shown when no messages yet */
+        .welcome {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .welcome-icon { font-size: 48px; margin-bottom: 16px; }
+        .welcome h2   { font-size: 20px; font-weight: 600; color: #2d3748; margin-bottom: 8px; }
+        .welcome p    { font-size: 14px; color: #718096; max-width: 400px; line-height: 1.6; }
+
+        .sample-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 24px;
+            max-width: 600px;
+        }
+        .sample-pill {
+            font-size: 13px;
+            padding: 8px 16px;
+            background: white;
+            color: #2b6cb0;
+            border: 1px solid #bee3f8;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .sample-pill:hover { background: #ebf8ff; border-color: #4299e1; }
+
+        /* ── Message row ── */
+        .message-row {
+            display: flex;
+            padding: 6px 24px;
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .message-row.user     { justify-content: flex-end; }
+        .message-row.assistant { justify-content: flex-start; }
+
+        .bubble {
+            max-width: 72%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.7;
+            word-break: break-word;
+        }
+
+        /* User bubble */
+        .message-row.user .bubble {
+            background: linear-gradient(135deg, #2b6cb0, #4299e1);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Assistant bubble */
+        .message-row.assistant .bubble {
+            background: white;
+            color: #2d3748;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+        }
+
+        .answer-text { white-space: pre-wrap; }
+
+        /* Compact citations */
+        .citations {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .citation-line {
+            font-size: 12px;
+            color: #718096;
+        }
+        .citation-line span {
+            font-weight: 600;
+            color: #4299e1;
+        }
+
+        /* Model + timestamp meta */
+        .bubble-meta {
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .model-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            background: #c6f6d5;
+            color: #276749;
+        }
+        .model-badge.fallback { background: #fefcbf; color: #744210; }
+        .ts { font-size: 10px; color: #a0aec0; }
+
+        /* Error bubble */
+        .bubble.error {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            color: #c53030;
+        }
+        .bubble.rate-limit {
+            background: #fffaf0;
+            border: 1px solid #fbd38d;
+            color: #744210;
+        }
+
+        /* ── Typing indicator ── */
+        .typing-row {
+            display: none;
+            padding: 6px 24px;
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .typing-bubble {
+            background: white;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            padding: 14px 18px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            font-size: 13px;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .typing-dots {
+            display: flex; gap: 4px;
+        }
+        .typing-dots span {
+            width: 7px; height: 7px;
+            background: #4299e1;
+            border-radius: 50%;
+            animation: bounce 1.2s infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40%            { transform: translateY(-6px); }
+        }
+
+        /* ── Input area ── */
+        .input-area {
+            flex-shrink: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 16px 24px 20px;
+        }
+        .input-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        textarea {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            min-height: 48px;
+            max-height: 140px;
+            overflow-y: auto;
+            transition: border-color 0.2s;
+            color: #2d3748;
+            line-height: 1.5;
+        }
+        textarea:focus { outline: none; border-color: #4299e1; }
+        textarea::placeholder { color: #a0aec0; }
+
+        .send-btn {
+            width: 46px; height: 46px;
+            background: linear-gradient(135deg, #2b6cb0, #4299e1);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .send-btn:hover   { opacity: 0.9; transform: translateY(-1px); }
+        .send-btn:active  { transform: translateY(0); }
+        .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .input-hint {
+            text-align: center;
+            font-size: 11px;
+            color: #a0aec0;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="header-left">
+        <div class="header-icon">📋</div>
+        <div>
+            <h1>RAG Regulatory Explainer</h1>
+            <p>Ask questions about Basel, RBI, and internal regulatory documents</p>
+        </div>
+    </div>
+    <button class="new-chat-btn" onclick="newConversation()">＋ New Conversation</button>
+</div>
+
+<!-- Chat thread -->
+<div class="chat-thread" id="chatThread">
+
+    <!-- Welcome screen -->
+    <div class="welcome" id="welcomeScreen">
+        <div class="welcome-icon">📖</div>
+        <h2>Regulatory Document Assistant</h2>
+        <p>Ask me anything about Basel, RBI, or your internal regulatory documents.
+           I maintain context across follow-up questions.</p>
+        <div class="sample-pills">
+            <button class="sample-pill" onclick="sendSample('What are the Basel III capital requirements?')">
+                Basel III capital requirements
+            </button>
+            <button class="sample-pill" onclick="sendSample('What is the leverage ratio requirement under Basel III?')">
+                Leverage ratio requirement
+            </button>
+            <button class="sample-pill" onclick="sendSample('Explain the output floor under Basel III.')">
+                Output floor
+            </button>
+            <button class="sample-pill" onclick="sendSample('What is the capital conservation buffer?')">
+                Capital conservation buffer
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Typing indicator -->
+<div class="typing-row" id="typingRow">
+    <div class="typing-bubble">
+        <div class="typing-dots">
+            <span></span><span></span><span></span>
+        </div>
+        <span id="typingStatus">Understanding your question...</span>
+    </div>
+</div>
+
+<!-- Input area -->
+<div class="input-area">
+    <div class="input-inner">
+        <textarea id="questionInput"
+            placeholder="Ask a regulatory question... (Ctrl+Enter to send)"
+            rows="1"
+            oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send">➤</button>
+    </div>
+    <div class="input-hint">Ctrl+Enter to send &nbsp;·&nbsp; Conversation context maintained across follow-ups</div>
+</div>
+
+<script>
+    // ── State ──────────────────────────────────────────────────────────────
+    const HISTORY_WINDOW = 5;   // Must match backend HISTORY_WINDOW
+    let conversationHistory = [];  // Full history stored client-side
+    let isWaiting = false;
+
+    // ── Auto-resize textarea ───────────────────────────────────────────────
+    function autoResize(el) {
+        el.style.height = 'auto';
+        el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+    }
+
+    // ── Send via sample pill ───────────────────────────────────────────────
+    function sendSample(text) {
+        document.getElementById('questionInput').value = text;
+        sendMessage();
+    }
+
+    // ── New conversation ───────────────────────────────────────────────────
+    function newConversation() {
+        conversationHistory = [];
+        const thread = document.getElementById('chatThread');
+        // Remove all message rows, keep welcome screen
+        const rows = thread.querySelectorAll('.message-row');
+        rows.forEach(r => r.remove());
+        document.getElementById('welcomeScreen').style.display = 'flex';
+        document.getElementById('questionInput').value = '';
+        document.getElementById('questionInput').style.height = 'auto';
+    }
+
+    // ── Show / hide typing indicator ───────────────────────────────────────
+    function showTyping(statusText) {
+        document.getElementById('typingStatus').textContent = statusText;
+        document.getElementById('typingRow').style.display = 'flex';
+        scrollToBottom();
+    }
+    function hideTyping() {
+        document.getElementById('typingRow').style.display = 'none';
+    }
+
+    // ── Scroll chat to bottom ──────────────────────────────────────────────
+    function scrollToBottom() {
+        const thread = document.getElementById('chatThread');
+        thread.scrollTop = thread.scrollHeight;
+    }
+
+    // ── Append a user bubble ───────────────────────────────────────────────
+    function appendUserBubble(text) {
+        // Hide welcome screen on first message
+        document.getElementById('welcomeScreen').style.display = 'none';
+
+        const row = document.createElement('div');
+        row.className = 'message-row user';
+        row.innerHTML = `<div class="bubble">${escapeHtml(text)}</div>`;
+        document.getElementById('chatThread').appendChild(row);
+        scrollToBottom();
+    }
+
+    // ── Append an assistant bubble ─────────────────────────────────────────
+    function appendAssistantBubble(data) {
+        const row = document.createElement('div');
+        row.className = 'message-row assistant';
+
+        const isRateLimit  = data.error_type === 'rate_limit';
+        const isUnavailable = data.error_type === 'unavailable';
+        const bubbleClass  = isRateLimit ? 'bubble rate-limit'
+                           : isUnavailable ? 'bubble error'
+                           : 'bubble';
+
+        // Compact citations (only if sources present)
+        let citationsHtml = '';
+        if (data.sources && data.sources.length > 0) {
+            const lines = data.sources.map(s =>
+                `<div class="citation-line">📄 <span>${escapeHtml(s.document_name)}</span> — Page ${s.page_number}</div>`
+            ).join('');
+            citationsHtml = `<div class="citations">${lines}</div>`;
+        }
+
+        // Model badge + timestamp (only for successful responses)
+        let metaHtml = '';
+        if (!data.error_type && data.model_used && data.model_used !== 'none') {
+            const isFallback = data.model_used.includes('3-flash-preview') &&
+                               !data.model_used.includes('lite');
+            const badgeClass = isFallback ? 'model-badge fallback' : 'model-badge';
+            const ts = new Date(data.timestamp).toLocaleTimeString();
+            metaHtml = `
+                <div class="bubble-meta">
+                    <span class="${badgeClass}">🤖 ${escapeHtml(data.model_used)}</span>
+                    <span class="ts">${ts}</span>
+                </div>`;
+        }
+
+        // Rate limit icon
+        const prefix = isRateLimit ? '⏳ ' : isUnavailable ? '⚠️ ' : '';
+
+        row.innerHTML = `
+            <div class="${bubbleClass}">
+                <div class="answer-text">${prefix}${escapeHtml(data.answer)}</div>
+                ${citationsHtml}
+                ${metaHtml}
+            </div>`;
+
+        document.getElementById('chatThread').appendChild(row);
+        scrollToBottom();
+    }
+
+    // ── Main send function ─────────────────────────────────────────────────
+    async function sendMessage() {
+        if (isWaiting) return;
+
+        const input = document.getElementById('questionInput');
+        const question = input.value.trim();
+        if (!question) return;
+
+        isWaiting = true;
+        document.getElementById('sendBtn').disabled = true;
+        input.value = '';
+        input.style.height = 'auto';
+
+        // Show user bubble
+        appendUserBubble(question);
+
+        // Stage 1 loading
+        showTyping('Understanding your question...');
+
+        // Build sliding window of history to send
+        const historyWindow = conversationHistory.slice(-HISTORY_WINDOW * 2);
+
+        // Short delay so user sees stage 1 message before stage 2
+        await new Promise(r => setTimeout(r, 800));
+        showTyping('Generating answer...');
+
+        try {
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    question: question,
+                    conversation_history: historyWindow
+                })
+            });
+
+            hideTyping();
+
+            if (!response.ok) {
+                appendAssistantBubble({
+                    answer     : `Server error (${response.status}). Please try again.`,
+                    error_type : 'unavailable',
+                    sources    : [],
+                    model_used : 'none',
+                    timestamp  : new Date().toISOString()
+                });
+                return;
+            }
+
+            const data = await response.json();
+            appendAssistantBubble(data);
+
+            // Only append to history on successful responses
+            if (!data.error_type) {
+                conversationHistory.push({ role: 'user',      content: question });
+                conversationHistory.push({ role: 'assistant', content: data.answer });
+            }
+
+        } catch (err) {
+            hideTyping();
+            appendAssistantBubble({
+                answer     : 'Failed to reach the server. Please check your connection and try again.',
+                error_type : 'unavailable',
+                sources    : [],
+                model_used : 'none',
+                timestamp  : new Date().toISOString()
+            });
+            console.error(err);
+        } finally {
+            isWaiting = false;
+            document.getElementById('sendBtn').disabled = false;
+            input.focus();
+        }
+    }
+
+    // ── Escape HTML to prevent XSS ─────────────────────────────────────────
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    // ── Keyboard shortcut ──────────────────────────────────────────────────
+    document.getElementById('questionInput').addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+</script>
+
+</body>
+</html>

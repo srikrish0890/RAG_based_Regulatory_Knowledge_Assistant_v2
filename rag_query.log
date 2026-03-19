@@ -1,0 +1,110 @@
+2026-03-17 23:38:26,782 [INFO] Loading FAISS index...
+2026-03-17 23:38:26,814 [INFO] FAISS index loaded: 1337 vectors
+2026-03-17 23:38:26,814 [INFO] Loading embedding model: all-MiniLM-L6-v2
+2026-03-17 23:38:26,819 [INFO] Use pytorch device_name: cpu
+2026-03-17 23:38:26,819 [INFO] Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-03-17 23:38:30,319 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:30,361 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:30,730 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:30,745 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:31,036 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:31,049 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:31,514 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:31,535 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-03-17 23:38:31,929 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:31,930 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-17 23:38:31,947 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:32,333 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:32,350 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:32,767 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-03-17 23:38:33,005 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:33,018 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:33,688 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:33,703 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:34,142 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:34,349 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:34,958 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 23:38:35,342 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 23:38:35,846 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 23:38:35,858 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-03-17 23:38:36,160 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-17 23:38:36,169 [INFO] Embedding model loaded
+2026-03-17 23:39:43,432 [INFO] Received question: explain me the plat
+2026-03-17 23:39:43,433 [INFO] Retrieving chunks for question: explain me the plat
+2026-03-17 23:39:43,699 [INFO] Retrieved 3 chunks from FAISS
+2026-03-17 23:39:43,700 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-17 23:39:43,700 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-17 23:39:45,794 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-17 23:39:45,810 [INFO] PRIMARY model responded successfully
+2026-03-17 23:39:45,811 [INFO] Answer generated using: gemini-3.1-flash-lite-preview
+2026-03-17 23:43:32,675 [INFO] Received question: What is the capital conservation buffer?
+2026-03-17 23:43:32,675 [INFO] Retrieving chunks for question: What is the capital conservation buffer?
+2026-03-17 23:43:32,751 [INFO] Retrieved 3 chunks from FAISS
+2026-03-17 23:43:32,752 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-17 23:43:32,752 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-17 23:43:34,896 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-17 23:43:34,901 [INFO] PRIMARY model responded successfully
+2026-03-17 23:43:34,901 [INFO] Answer generated using: gemini-3.1-flash-lite-preview
+2026-03-17 23:44:29,257 [INFO] Received question: give me latest issues on frtb implementation
+2026-03-17 23:44:29,257 [INFO] Retrieving chunks for question: give me latest issues on frtb implementation
+2026-03-17 23:44:29,304 [INFO] Retrieved 3 chunks from FAISS
+2026-03-17 23:44:29,304 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-17 23:44:29,305 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-17 23:44:31,106 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-17 23:44:31,115 [INFO] PRIMARY model responded successfully
+2026-03-17 23:44:31,116 [INFO] Answer generated using: gemini-3.1-flash-lite-preview
+2026-03-18 20:58:26,929 [INFO] Loading FAISS index...
+2026-03-18 20:58:26,978 [INFO] FAISS index loaded: 1337 vectors
+2026-03-18 20:58:26,980 [INFO] Loading embedding model: all-MiniLM-L6-v2
+2026-03-18 20:58:26,992 [INFO] Use pytorch device_name: cpu
+2026-03-18 20:58:26,993 [INFO] Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-03-18 20:58:29,499 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:29,554 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:29,908 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:29,936 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:30,320 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:30,346 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:30,634 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:30,672 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-03-18 20:58:31,136 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:31,157 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:31,695 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:31,719 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:32,007 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-03-18 20:58:32,293 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:32,318 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:33,711 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:33,733 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:34,010 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:34,013 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-18 20:58:34,034 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:34,398 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-18 20:58:34,648 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-18 20:58:35,405 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-18 20:58:35,541 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-03-18 20:58:35,947 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-03-18 20:58:35,975 [INFO] Embedding model loaded
+2026-03-18 22:45:50,570 [INFO] Received question: list me latest challenges with ima
+2026-03-18 22:45:50,574 [INFO] Retrieving chunks for question: list me latest challenges with ima
+2026-03-18 22:45:51,156 [INFO] Retrieved 3 chunks from FAISS
+2026-03-18 22:45:51,157 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-18 22:45:51,162 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-18 22:45:53,584 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-18 22:45:53,650 [INFO] PRIMARY model responded successfully
+2026-03-18 22:45:53,651 [INFO] Answer generated using: gemini-3.1-flash-lite-preview
+2026-03-18 23:01:44,511 [INFO] Received question: let me know what is plat
+2026-03-18 23:01:44,512 [INFO] Retrieving chunks for question: let me know what is plat
+2026-03-18 23:01:44,816 [INFO] Retrieved 3 chunks from FAISS
+2026-03-18 23:01:44,817 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-18 23:01:44,819 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-18 23:01:46,284 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-18 23:01:46,316 [INFO] PRIMARY model responded successfully
+2026-03-18 23:01:46,317 [INFO] Answer generated using: gemini-3.1-flash-lite-preview
+2026-03-18 23:02:04,468 [INFO] Received question: what are the key issues in implementing plat
+2026-03-18 23:02:04,469 [INFO] Retrieving chunks for question: what are the key issues in implementing plat
+2026-03-18 23:02:04,550 [INFO] Retrieved 3 chunks from FAISS
+2026-03-18 23:02:04,557 [INFO] Calling PRIMARY model: gemini-3.1-flash-lite-preview
+2026-03-18 23:02:04,679 [INFO] AFC is enabled with max remote calls: 10.
+2026-03-18 23:02:07,173 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-18 23:02:07,195 [INFO] PRIMARY model responded successfully
+2026-03-18 23:02:07,196 [INFO] Answer generated using: gemini-3.1-flash-lite-preview

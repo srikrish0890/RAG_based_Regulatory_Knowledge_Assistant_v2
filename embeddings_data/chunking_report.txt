@@ -1,0 +1,32 @@
+CHUNKING & EMBEDDING GENERATION REPORT
+============================================================
+
+Generated: 2026-03-17 21:35:02
+
+CONFIGURATION
+------------------------------------------------------------
+  Embedding Model: all-MiniLM-L6-v2
+  Chunk Size: 400 tokens
+  Chunk Overlap: 50 tokens
+  Batch Size: 16
+
+STATISTICS
+------------------------------------------------------------
+  Total Chunks: 1337
+  Documents Processed: 6
+  Embedding Dimension: 384
+
+CHUNK LENGTH STATISTICS
+------------------------------------------------------------
+  Average Length: 941 characters
+  Min Length: 67 characters
+  Max Length: 1600 characters
+
+DOCUMENTS
+------------------------------------------------------------
+  • BIS Explanatory note on the minimum capital requirements for market risk: 158 chunks
+  • BIS Minimum capital requirements for market risk: 960 chunks
+  • Basel III transitional arrangements, 2017-2028: 6 chunks
+  • Modernizing-the-FRTB-A-Global-Blueprint-for-Market-Risk-Reform: 36 chunks
+  • Sharpening Shapley Allocation from Basel 2_5 to FRTB Marco Scaringi Marco Bianchetti: 148 chunks
+  • crisil-full-revaluation-hurdles-in-frtb: 29 chunks

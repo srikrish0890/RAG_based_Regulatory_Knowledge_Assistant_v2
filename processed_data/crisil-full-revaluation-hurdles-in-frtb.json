@@ -1,0 +1,142 @@
+{
+  "summary": {
+    "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+    "total_pages": 12,
+    "total_characters": 17659,
+    "processed_date": "2026-03-17T21:21:43.176760"
+  },
+  "pages": [
+    {
+      "text": "Full-revaluation hurdles in FRTB Market risk framework October 2023",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 1,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:42.956809"
+      },
+      "text_length": 67
+    },
+    {
+      "text": "2 CRISIL GR&RS analytical contacts Nageswara Sastry Ganduri APAC Head of Risk Analytics and Global Markets Transformation nageswara.ganduri@crisil.com Partha Ray Associate Director — MR Model Risk partha.ray@crisil.com Tejas Shende Associate Director — MR Model Risk tejas.shende@crisil.com Amrit Dash Lead Analyst — MR Model Risk amrit.dash@crisil.com",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 2,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:42.972940"
+      },
+      "text_length": 352
+    },
+    {
+      "text": "3 Executive summary The revised market risk framework for capital calculation, commonly known as the Fundamental Review of the Trading Book (FRTB), allows banking organisations to use either the standardised approach or internal model approach (IMA). The IMA involves risk factor modellability tests, desk-level approvals, multiple liquidity horizons (LHs), the replacement of value-at-risk (VaR) with expected shortfall (ES), and non- modellable risk factors (NMRFs). To compute ES and stressed expected shortfall (SES) for NMRFs, the first step is to get the profit and loss (P&L) distribution. One of the common approaches is to use a sensitivity/ Greeks-based framework. However, this approach fails to effectively capture all the non-linearities in valuation. To address this, banks uses the full-revaluation (FR) approach. FR involves shocking the inputs and then revaluing the products in the portfolio using the corresponding pricing/ valuation functions. This paper summarises the challenges that banks may encounter, including the complexity involved in FR calculations, impact of using proxies in FR calculations, importance of standardising risk factors to align with reference data, and effect of distinct valuation methodologies for front-office (FO) and risk purposes.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 3,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:42.988024"
+      },
+      "text_length": 1283
+    },
+    {
+      "text": "4 Introduction The introduction of FRTB for regulatory capital calculation represents a significant undertaking for banks, given the intricate requirements mandated by regulatory authorities. It necessitates substantial investments in improving data quality and enhancing technology, all while managing and controlling implementation costs and timelines. While the modelling complexity of the standardised approach remains relatively straightforward, the IMA involves risk factor modellability tests, desk-level approvals, multiple LHs, the replacement of VaR with ES, and NMRFs. The complexity becomes even more pronounced when transitioning from a sensitivity/Greeks-based framework to the FR approach. In this paper, we delve into the challenges that banks may encounter when implementing the FR approach within the framework of FRTB-IMA. Further, we offer insights on how banks can overcome these hurdles. Full Revaluation requirements FR involves shocking the inputs and then revaluing the products in the portfolio using the corresponding pricing/ valuation functions. The P&L distribution uses the pricer for two time periods to compute the relevant market risk metric, such as VaR or ES. In the FR approach, the computational requirement of pricing is dependent on the pricing function and the magnitude of shocks. Given that the products are being repriced comprehensively, this approach effectively captures all the non-linearities in valuation, unlike the sensitivity-based approach. Another benefit of using FR for asset pricing is that it does not necessitate the use of corresponding sensitivities for capital calculation. Therefore, the FR approach provides a more accurate representation of FO P&L, leading to improved P&L attribution (PLA) test results. Nevertheless, there is a trade-off involved, as FR demands significant computational resources. Banks must categorise the products that could be priced using the FR or partial revaluation or sensitivity / Greeks-based approach.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 4,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.006545"
+      },
+      "text_length": 1998
+    },
+    {
+      "text": "5 Challenges and solutions The ES problem Table 1: Number of ES calculations to be performed as per IMCC requirements for each scenario Applicable LHs Risk factor classes Diversified run IR FX Equity Commodity Credit Liquidity Horizon (Days) 10 X X X X 20 X X X X X X 40 X X X 60 X X X X X 120 X X X Number of ES calculations (for each scenario) 5 3 3 3 3 4 Note: For the three scenarios mentioned by the regulator, i.e., reduced stress, full stress and full current, the number goes up to 63. A total of 63 ES calculations must be conducted for the reduced stress, full stress and full current scenarios within each LH and risk factor class, in accordance with the IMCC (aggregate capital charge for modellable risk factors) requirements stipulated by the regulator. When compared with the current Basel 2.5 VaR and stress VaR (SVaR) computations, the new FRTB regime requires a much higher number of aggregations for conducting P&L calculations. The comprehensive ES computation requirement amplifies storage and computational hurdles. FR necessitates the generation of new scenario shocks for each LH. For a specific risk factor class, the computational requirements increase fivefold due to this factor alone. This is compounded by the regulator’s introduction of LH capping to the maturity of the positions.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 5,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.031500"
+      },
+      "text_length": 1312
+    },
+    {
+      "text": "6 For a trade involving a risk factor with an LH of 60 days and a maturity of 8 days, the ES computation considers an LH of 10 days, as per the following: 𝐸𝑓𝑓𝑒𝑐𝑡𝑖𝑣𝑒 𝐿𝐻 = { 𝐿𝐻𝑅𝐹, 𝑖𝑓 𝑀𝑎𝑡𝑢𝑟𝑖𝑡𝑦 > 𝐿𝐻120 𝑚𝑖𝑛 (𝐿𝐻𝑅𝐹, 𝐿𝐻𝑛𝑒𝑥𝑡), 𝑖𝑓 𝐿𝐻𝑖 ≤ 𝑀𝑎𝑡𝑢𝑟𝑖𝑡𝑦 ≤ 𝐿𝐻120 𝐿𝐻10, 𝑖𝑓 𝑀𝑎𝑡𝑢𝑟𝑖𝑡𝑦 < 𝐿𝐻10 Where 𝐸𝑓𝑓𝑒𝑐𝑡𝑖𝑣𝑒 𝐿𝐻 – effective LH used for capital calculation 𝐿𝐻𝑅𝐹 – LH for the risk factor as prescribed by the regulator [𝐿𝐻10, 𝐿𝐻20, 𝐿𝐻40, 𝐿𝐻60, 𝐿𝐻120] – regulator- defined LHs, i.e., 10, 20, 40, 60, 120, respectively. 𝐿𝐻𝑛𝑒𝑥𝑡 – length of one of the LHs in 𝐿𝐻10, 𝐿𝐻20, 𝐿𝐻40, 𝐿𝐻60, 𝐿𝐻120, i.e., the nearest LH above the maturity of the trade 𝑀𝑎𝑡𝑢𝑟𝑖𝑡𝑦 – maturity of the trade Mathematically, a lower LH reduces the contribution in the aggregated ES as per the formula below. 𝐸𝑆 = √(𝐸𝑆(𝑃))2 + ∑ (𝐸𝑆𝑇(𝑃, 𝑗)√(𝐿𝐻𝑗 − 𝐿𝐻𝑗−1) 𝑇 ) 2 𝑗≥2 However, this additional requirement introduces complexity into the FR calculation involved, specifically in terms of additional LH mapping for trades and P&L calculation requirements. To implement the above, banks must be cautious about the introduction of unrealistic hedge breaks, which can negatively impact capital and risk management.[1] CRISIL view As previously outlined in our paper titled ‘Ongoing monitoring framework for front office pricing models’[2], we can employ a similar structure to efficiently compute FR within the risk systems. The models can be grouped together based on commonalities and complexity of the model methodology, and the system on which they are deployed. Let us assume that a group of i) linear interest rate (IR) and forex (FX) products such as futures, bonds and swaps, and ii) products with optionality such as swaptions and FX options are implemented on a single platform that uses the multi-curve framework for valuation. Common curves across all products can be repriced to ensure calibration accuracy. One way to enhance the efficiency of FR is to employ multi-processing for the same-group products within the risk systems. Alternatively, optimising the code to the highest extent possible helps in efficiently managing the higher number of FR computations.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 6,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.062557"
+      },
+      "text_length": 2102
+    },
+    {
+      "text": "7 Table 2: Summary of FO pricing models Asset class/system + representative risk/pricing engines Model count Key model group Vanilla products + Engine S 40 Vanilla products under cash flow discounting models, curve bootstrapping and Markov-functional models Non-linear IR products + Engine F 45 Primarily exotic products (short-rate models, curve bootstrapping, Markov chain Monte-Carlo two-factor replication models, market models and vol surface bootstrapping) Engine M 35 Black-Scholes, quanto Black-Scholes, cash flow discounting, lognormal approximation and local vol FX exotics (PDE solver, stochastic local vol FX exotics) VaR feeder models + Engine R 20 Cash flow models (FX vanilla, IR swaps, IR vanilla, money market futures, XCCY swaps) and credit risk notes BVA model 45 Calibration, sensitivities, scenario generation and pricing for IR cash products and options Volatility products + Engine Q 115 Black-Scholes, Dupire local vol, moment matching, Heston, average Cox and linear payoffs Note: An asset class-based categorisation based on an assumed number of models",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 7,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.083195"
+      },
+      "text_length": 1078
+    },
+    {
+      "text": "8 The data challenge Since the emergence of risk models, proxies have been a favoured method for substituting missing data in historical time series. The FRTB regulators allow proxies in the case of IMA implementation. An additional SES charge, using a stress test applied to the basis between the original NMRF and its modellable substitute, is to be calculated as a result of the introduction of proxies. This reduces the capital requirements as only the basis component is capitalised under the more punitive NMRF capital. Although proxies are crucial drivers of capital, they are very complex to implement. The creation of new proxies may add new risk factors to the ES calculation on the IMCC side, impacting PLA test and back- testing results. The flow chart below presents the NMRF calculation process when proxy risks are involved. The requirements outlined above present a strong case for enhancing both the quantity and quality of data under the FRTB regime as compared to Basel 2.5. Banks will require additional information to select relevant proxies in order to improve risk coverage during the PLA test. If the selected proxy is not closely aligned with the NMRF, this exercise could be detrimental to capital savings rather than beneficial. The inclusion of new risk factors in IMCC and basis components under the NMRF makes FR more complicated. Risk factor Proxy time series (TS)? Decompose TS into systematic and idiosyncratic components Is risk factor (RF) modellable? Is credit or equity RF? Decompose TS into systematic and idiosyncratic components Use exact TSIMCC calculator NMRF calculator Idiosyncratic risk Systematic risk Systematic risk NoYes NoYes No Yes Idiosyncratic risk",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 8,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.100375"
+      },
+      "text_length": 1701
+    },
+    {
+      "text": "9 CRISIL view An FRTB requirement allows banks to source quality data from external vendors to minimise dependency on proxies for missing time series. This will enable banks to capitalise a major portion of the risk through IMCC. Conducting a cost-benefit analysis that compares the cost of sourcing data from vendors with the observed capital benefits is crucial for making informed and prudent decisions. NMRF and FR According to ISDA’s QIS study in 2017, NMRFs account for approximately 36% of the total capital charge under the IMA.[3] For a given portfolio under NMRF calculations, a bucketing approach for exact time series NMRFs is employed and each proxy risk factor has its own bucket. This entails that the NMRF-FR run for each proxy risk factor is an individual standalone run. Essentially, the only risk factor to be shocked is the proxy NMRF for each run, while zeroing out all the other shocks. These shocks are finally aggregated based on rules prescribed by BCBS guidelines. CRISIL view A cost-benefit analysis must be conducted to determine whether the capital savings to run NMRFs under FR are offsetting the cost of computation and resources involved. Banks should also ensure timely completion of processing to avoid delays in reporting activities. NMRFs should be capitalised under a sensitivity/ Greeks-based framework if the cost of running them under FR exceeds the capital benefit. Alternatively, banks could assign additional resources to reduce the number of NMRFs. NMRF mapping in IMCC Misalignment among the FO, risk and finance systems results in numerous manual reconciliations for the back office. Often, reference data for risk factor mapping between the scenario shocks in the FO system and the risk system is not aligned. To prevent the duplication of capital resulting from NMRFs, it is essential to exclude such risk factors from the IMCC calculation when performing FR. This exclusion of risk factors must be implemented in the FR codebase.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 9,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.119052"
+      },
+      "text_length": 1978
+    },
+    {
+      "text": "10 The misalignment between the two systems could cause NMRFs to trickle into the IMCC calculation, resulting in misrepresentation of the capital. Standardising the risk factors to align with reference data taxonomies would facilitate smooth mapping, reducing the need for extensive manual reconciliations. This, in turn, would enhance efficiency and free up computational capacity. CRISIL view Banks’ system taxonomies must be standardised and aligned. Banks should strive to establish a single reference database for FO, finance and risk. For a holistic view of reference data, the instrument identifiers need to be unique. The FRTB poses a significant data challenge for banks. Establishing a golden source of data can help standardise processes throughout the bank, facilitating PLA analysis and greatly reducing the cost towards manual reference data mapping and reconciliation. This would also improve operational efficiency and lead to higher-quality and complete data. FO vs risk pricing framework Most banks employ distinct valuation methodologies for FO and risk purposes. Aligning the FO and risk methodologies yields improved PLA test and back-testing. This is supported by Section MAR 31.2 of the BCBS document, which states: “A bank’s market risk capital requirement models should include all risk factors that are used for pricing. In the event a risk factor is incorporated in a pricing model but not in the trading desk risk management model, the bank must support this omission to the satisfaction of its supervisory authority.”[4] FR incorporates non-linear effects into the P&L calculation more comprehensively than a sensitivity/ Greeks-based approach. This could improve PLA test results and lower capital surcharge, resulting in more trading desks coming under IMCC. CRISIL view Banks must establish a consistent pricing architecture between FO and risk to ensure alignment of P&L across both functions — a formidable challenge for both sides. On the risk side, there is a need for investment in infrastructure. With the introduction of IMCC and NMRFs, achieving standardisation with the FO demands significant computational power.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 10,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.141311"
+      },
+      "text_length": 2154
+    },
+    {
+      "text": "11 The risk function could consider investing in cloud solutions and building a vertically scalable platform to meet computational and data requirements. This entails a unique cocktail of business knowledge, IT capabilities, data engineering and data science to properly leverage all benefits. The FO side needs to be proactive in updating its systems to ensure alignment with other functions. Although this is a complex undertaking due to the large number of models and systems, it is a one- time effort that can be outsourced to third parties for attractive long-term gains. References [1] https://www.isda.org/a/hvJgE/ISDA-Responds-to-PRA-Consultation-on-Basel-3.1-Implementation.pdf [2] https://www.crisil.com/en/home/our-analysis/reports/2023/01/ongoing-monitoring-framework-for-front-office- pricing-models.html [3] https://www.isda.org/a/lTiDE/qis-7-frtb-refresh-report-spotlight-final.pdf [4] https://www.bis.org/bcbs/publ/d457.pdf",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 11,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.152973"
+      },
+      "text_length": 939
+    },
+    {
+      "text": "Argentina | Australia | China | Hong Kong | India | Japan | Poland | Singapore | Switzerland | UAE | UK | USA CRISIL Limited: CRISIL House, Central Avenue, Hiranandani Business Park, Powai, Mumbai – 400076. India Phone: + 91 22 3342 3000 | Fax: + 91 22 3342 3001 | www.crisil.com /company/crisil-global-research-&-risk-solutions @CRISILGRRS /CRISILLimited /user/CRISILLimited /lifeatcrisil About Global Research & Risk Solutions CRISIL GR&RS is a leading provider of high-end research, risk and analytics services. We are the world's largest provider of equity and fixed-income research support to banks and buy-side firms. We are also the foremost provider of end-to-end risk and analytics services that include quantitative support, front and middle office support, and regulatory and business process change management support to trading, risk management, regulatory and CFO functions at world's leading financial institutions. We also provide extensive support to banks in financial c rime and compliance analytics. We are leaders in research support, and risk and analytics support, providing it to more than 75 global banks, 50 buy-side firms covering hedge funds, private equity, and asset management firms. Our research support enables coverage of over 3,300 stocks and 3,400 corporates and financial institutions globally. We support more than 15 bank holding companies in their regulatory requirements and submissions. We operate from 7 research centers in Argentina, China, India, and Poland, and across several time zones and languages. About CRISIL Limited CRISIL is a leading, agile and innovative global analytics company driven by its mission of making markets function better. It is India's foremost provider of ratings, data, research, analytics and solutions with a strong track record of growth, culture of innovation, and global footprint. It has delivered independent opinions, actionable insights, and efficient solutions to over 100,000 customers through businesses that operate from India, the United States (US), the United Kingdom (UK), Argentina, Poland, China, Hong Kong, Singapore, Australia, Switzerland, Japan and the United Arab Emirates (UAE). It is majority owned by S&P Global Inc, a leading provider of transparent and independent ratings, benchmarks, analytics and data to the capital and commodity markets worldwide. CRISIL Privacy Notice CRISIL respects your privacy. We may use your personal information, such as your name, location, contact number and email id to fulfil your request, service your account and to provide you with additional information from CRISIL. For further information on CRISIL’s privacy policy please visit www.crisil.com/privacy.",
+      "metadata": {
+        "document_name": "crisil-full-revaluation-hurdles-in-frtb",
+        "file_path": "data\\crisil-full-revaluation-hurdles-in-frtb.pdf",
+        "page_number": 12,
+        "total_pages": 12,
+        "extracted_date": "2026-03-17T21:21:43.176009"
+      },
+      "text_length": 2695
+    }
+  ]
+}

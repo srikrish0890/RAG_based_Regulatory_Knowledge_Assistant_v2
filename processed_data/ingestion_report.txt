@@ -1,0 +1,35 @@
+PDF INGESTION REPORT
+============================================================
+
+Generated: 2026-03-17 21:21:45
+Mode: REBUILD
+
+Documents Processed: 6
+Documents Skipped:   0
+------------------------------------------------------------
+
+Processed:
+  • Basel III transitional arrangements, 2017-2028
+    Pages: 1
+    Path: data\Basel III transitional arrangements, 2017-2028.pdf
+
+  • BIS Explanatory note on the minimum capital requirements for market risk
+    Pages: 24
+    Path: data\BIS Explanatory note on the minimum capital requirements for market risk.pdf
+
+  • BIS Minimum capital requirements for market risk
+    Pages: 136
+    Path: data\BIS Minimum capital requirements for market risk.pdf
+
+  • crisil-full-revaluation-hurdles-in-frtb
+    Pages: 12
+    Path: data\crisil-full-revaluation-hurdles-in-frtb.pdf
+
+  • Modernizing-the-FRTB-A-Global-Blueprint-for-Market-Risk-Reform
+    Pages: 4
+    Path: data\Modernizing-the-FRTB-A-Global-Blueprint-for-Market-Risk-Reform.pdf
+
+  • Sharpening Shapley Allocation from Basel 2_5 to FRTB Marco Scaringi Marco Bianchetti
+    Pages: 46
+    Path: data\Sharpening Shapley Allocation from Basel 2_5 to FRTB Marco Scaringi Marco Bianchetti.pdf
+

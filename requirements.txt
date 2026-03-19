@@ -1,0 +1,29 @@
+# ── Web Framework ──────────────────────────────────────────
+fastapi                      # Web framework
+uvicorn                      # ASGI server to run FastAPI
+
+# ── Document Ingestion ─────────────────────────────────────
+pypdf                        # Parse clean digital PDFs
+unstructured                 # Handle mixed/scanned PDFs
+pytesseract                  # OCR for image-based PDFs
+
+# ── LangChain ──────────────────────────────────────────────
+langchain                    # Core LangChain library
+langchain-community          # Document loaders, FAISS integration
+langchain-google-genai       # Gemini integration via LangChain
+
+# ── Embeddings & Vector Store ──────────────────────────────
+sentence-transformers        # Local embedding model
+faiss-cpu                    # Local vector database
+
+# ── LLM Providers ──────────────────────────────────────────
+google-generativeai          # Gemini API (primary LLM)
+groq                         # Grok API (fallback LLM)
+
+# ── Utilities ──────────────────────────────────────────────
+python-dotenv                # Load API keys from .env file
+pydantic                     # Request/response validation
+loguru                       # Clean logging
+
+# ── Frontend ───────────────────────────────────────────────
+jinja2                       # Serve HTML templates via FastAPI
